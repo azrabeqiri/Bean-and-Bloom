@@ -18,12 +18,11 @@ $("#form").submit(function(e){
     $("#form")[0].reset();
   }
 });
-
 // API quote
-fetch("https://api.quotable.io/random")
+fetch("https://api.adviceslip.com/advice?" + new Date().getTime())
 .then(res => res.json())
 .then(data => {
-  document.getElementById("quote").innerText = data.content;
+  document.getElementById("quote").innerText = data.slip.advice;
 })
 .catch(() => {
   document.getElementById("quote").innerText = "Coffee is always a good idea.";
